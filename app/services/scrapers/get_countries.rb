@@ -8,7 +8,7 @@ class Scrapers::GetCountries
     @mechanize.verify_mode = OpenSSL::SSL::VERIFY_NONE
   end
 
-  def get
+  def get_all
     page = @mechanize.get(@url)
     page.encoding = 'utf-8'
     country_ul = page.search('li.list-group-item')
