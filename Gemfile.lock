@@ -37,9 +37,6 @@ GEM
       erubi (~> 1.4)
       rails-dom-testing (~> 2.0)
       rails-html-sanitizer (~> 1.1, >= 1.2.0)
-    active_record_upsert (0.9.5)
-      activerecord (>= 5.0, < 6.1)
-      pg (>= 0.18, < 2.0)
     activeadmin (2.7.0)
       arbre (~> 1.2, >= 1.2.1)
       formtastic (~> 3.1)
@@ -59,6 +56,8 @@ GEM
     activerecord (6.0.3.1)
       activemodel (= 6.0.3.1)
       activesupport (= 6.0.3.1)
+    activerecord-import (1.0.5)
+      activerecord (>= 3.2)
     activestorage (6.0.3.1)
       actionpack (= 6.0.3.1)
       activejob (= 6.0.3.1)
@@ -343,8 +342,8 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  active_record_upsert
   activeadmin (~> 2.7)
+  activerecord-import
   arctic_admin (~> 3.2)
   bcrypt (~> 3.1.7)
   bootsnap (>= 1.4.2)

@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 2020_05_31_203520) do
     t.string "path"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_countries_on_name", unique: true
   end
 
   create_table "ip_address_ranges", force: :cascade do |t|
@@ -30,7 +31,11 @@ ActiveRecord::Schema.define(version: 2020_05_31_203520) do
     t.integer "count"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["count"], name: "index_ip_address_ranges_on_count"
     t.index ["country_id"], name: "index_ip_address_ranges_on_country_id"
+    t.index ["end_address"], name: "index_ip_address_ranges_on_end_address"
+    t.index ["mask"], name: "index_ip_address_ranges_on_mask"
+    t.index ["start_address"], name: "index_ip_address_ranges_on_start_address"
   end
 
 end

@@ -3,8 +3,8 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.5'
 
-gem 'active_record_upsert'
 gem 'activeadmin', '~> 2.7'
+gem 'activerecord-import'
 gem 'arctic_admin', '~> 3.2'
 gem 'bcrypt', '~> 3.1.7'
 gem 'bootsnap', '>= 1.4.2', require: false

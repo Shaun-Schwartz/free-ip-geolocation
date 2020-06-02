@@ -12,13 +12,12 @@ class Scrapers::GetCountries
     page = @mechanize.get(@url)
     page.encoding = 'utf-8'
     country_ul = page.search('li.list-group-item')
-    country_ul.each do |li|
-      name = li.at('a').text
-      path = li.at('a').attributes['href'].value
-      Country.create(
-        name: name,
-        path: path
-      )
+    countries = country_ul.map do |li|
+      {
+        name: li.at('a').text,
+        path: li.at('a').attributes['href'].value
+      }
     end
+    countries
   end
 end
