@@ -15,8 +15,8 @@ class Scrapers::IpRanges
     table_data = page.search('table')[-1] # wtf -1
     table_data.search('tbody').search('tr').map do |tr|
       {
-        start_address: tr.children[1].text,
-        end_address: tr.children[3].text,
+        start_ip: tr.children[1].text,
+        end_ip: tr.children[3].text,
         count: tr.children[5].text
       }
     end

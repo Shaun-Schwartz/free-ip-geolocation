@@ -25,17 +25,18 @@ ActiveRecord::Schema.define(version: 2020_05_31_203520) do
 
   create_table "ip_address_ranges", force: :cascade do |t|
     t.bigint "country_id"
-    t.inet "start_address"
-    t.inet "end_address"
+    t.inet "start_ip"
+    t.inet "end_ip"
     t.inet "mask"
     t.integer "count"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["count"], name: "index_ip_address_ranges_on_count"
+    t.index ["country_id", "start_ip", "end_ip"], name: "index_ip_address_ranges_on_country_id_and_start_ip_and_end_ip", unique: true
     t.index ["country_id"], name: "index_ip_address_ranges_on_country_id"
-    t.index ["end_address"], name: "index_ip_address_ranges_on_end_address"
+    t.index ["end_ip"], name: "index_ip_address_ranges_on_end_ip"
     t.index ["mask"], name: "index_ip_address_ranges_on_mask"
-    t.index ["start_address"], name: "index_ip_address_ranges_on_start_address"
+    t.index ["start_ip"], name: "index_ip_address_ranges_on_start_ip"
   end
 
 end
