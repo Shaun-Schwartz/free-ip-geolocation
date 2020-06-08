@@ -1,0 +1,8 @@
+---
+# The authentication token for the application.
+authentication: kciBEn3dPKbSIxgWEl-P7LIG5jpU6wUCmb8zd5eSvak
+
+
+
+development:
+  env: 'development'

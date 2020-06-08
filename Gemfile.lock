@@ -114,6 +114,8 @@ GEM
       railties (>= 4.2.0)
     faker (2.12.0)
       i18n (>= 1.6, < 2)
+    fast_jsonapi (1.5)
+      activesupport (>= 4.2)
     ffi (1.12.2)
     font-awesome-sass (5.13.0)
       sassc (>= 1.11)
@@ -298,6 +300,10 @@ GEM
       rack (~> 2.0)
       rack-protection (>= 2.0.0)
       redis (>= 4.1.0)
+    skylight (4.3.0)
+      skylight-core (= 4.3.0)
+    skylight-core (4.3.0)
+      activesupport (>= 4.2.0)
     spring (2.1.0)
     spring-watcher-listen (2.0.1)
       listen (>= 2.7, < 4.0)
@@ -352,6 +358,7 @@ DEPENDENCIES
   dotenv-rails
   factory_bot_rails
   faker
+  fast_jsonapi
   httparty (~> 0.18)
   jquery-rails
   listen (>= 3.0.5, < 3.2)
@@ -366,6 +373,7 @@ DEPENDENCIES
   sass-rails (~> 5)
   shoulda-matchers
   sidekiq (~> 6.0.5)
+  skylight
   spring
   spring-watcher-listen (~> 2.0.0)
   tzinfo-data

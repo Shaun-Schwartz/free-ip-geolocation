@@ -1,13 +1,13 @@
 class Mappers::Country < Mappers::Base
   def mapped_attributes
-    [:name, :path]
+    [:name, :abbreviation]
   end
 
   def name
     object_hash[:name]
   end
 
-  def path
-    object_hash[:path]
+  def abbreviation
+    object_hash[:abbreviation]
   end
 end

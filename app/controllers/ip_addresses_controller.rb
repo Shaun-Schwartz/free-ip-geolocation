@@ -1,6 +1,16 @@
 class IpAddressesController < ApplicationController
-  def country
-    ip_add_int = IPAddr.new(params.require(:ip)).to_i
-    @country = Country.ip_address_ranges.where(range: ip_add_int)
+  def geolocation
+    ip = params.require(:ip)
+    address = IpAddressRange.find_by_ip(ip).first
+    render json: CountrySerializer.new(address.country)
+  end
+
+  def geolocations
+    ips = params.require(:ips)
+    ips_collection = Utils.to_collection(ips)
+    locations = ips_collection.each do |ip|
+      IpAddressRange.find_by_ip(ip).first.country
+    end
+    render json: CountrySerializer.new(locations).serializable_hash
   end
 end

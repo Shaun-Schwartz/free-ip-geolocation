@@ -10,32 +10,38 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_31_203520) do
+ActiveRecord::Schema.define(version: 2020_06_07_185908) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "countries", force: :cascade do |t|
     t.string "name"
-    t.string "path"
+    t.string "abbreviation"
+    t.string "region"
+    t.string "city"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["name"], name: "index_countries_on_name", unique: true
+    t.index ["city"], name: "index_countries_on_city"
+    t.index ["name", "abbreviation", "region", "city"], name: "index_countries_on_name_and_abbreviation_and_region_and_city", unique: true
+    t.index ["region"], name: "index_countries_on_region"
   end
 
   create_table "ip_address_ranges", force: :cascade do |t|
     t.bigint "country_id"
     t.inet "start_ip"
     t.inet "end_ip"
-    t.inet "mask"
-    t.integer "count"
+    t.bigint "start_int"
+    t.bigint "end_int"
+    t.integer "mask"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["count"], name: "index_ip_address_ranges_on_count"
-    t.index ["country_id", "start_ip", "end_ip"], name: "index_ip_address_ranges_on_country_id_and_start_ip_and_end_ip", unique: true
+    t.index ["country_id", "start_ip", "end_ip", "start_int", "end_int"], name: "index_ip_address_range_unique_for_upsert", unique: true
     t.index ["country_id"], name: "index_ip_address_ranges_on_country_id"
+    t.index ["end_int"], name: "index_ip_address_ranges_on_end_int"
     t.index ["end_ip"], name: "index_ip_address_ranges_on_end_ip"
     t.index ["mask"], name: "index_ip_address_ranges_on_mask"
+    t.index ["start_int"], name: "index_ip_address_ranges_on_start_int"
     t.index ["start_ip"], name: "index_ip_address_ranges_on_start_ip"
   end
 
