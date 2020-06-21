@@ -2,10 +2,10 @@ class CreateIpAddressRanges < ActiveRecord::Migration[5.1]
   def change
     create_table :ip_address_ranges do |t|
       t.references :country
-      t.inet :start_ip, index: true
-      t.inet :end_ip, index: true
-      t.integer :start_int, index: true
-      t.integer :end_int, index: true
+      t.string :start_ip, index: true
+      t.string :end_ip, index: true
+      t.integer :start_int, limit: 8, index: true
+      t.integer :end_int, limit: 8, index: true
       t.integer :mask, index: true
       t.timestamps
     end

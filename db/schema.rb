@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_07_185908) do
+ActiveRecord::Schema.define(version: 2020_05_31_203520) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,8 +29,8 @@ ActiveRecord::Schema.define(version: 2020_06_07_185908) do
 
   create_table "ip_address_ranges", force: :cascade do |t|
     t.bigint "country_id"
-    t.inet "start_ip"
-    t.inet "end_ip"
+    t.string "start_ip"
+    t.string "end_ip"
     t.bigint "start_int"
     t.bigint "end_int"
     t.integer "mask"

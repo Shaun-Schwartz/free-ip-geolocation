@@ -1,5 +1,5 @@
-require 'resolv'
 class IpAddressRange < ApplicationRecord
+  include Searchable
 
   belongs_to :country
 
