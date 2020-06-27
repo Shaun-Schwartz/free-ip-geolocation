@@ -19,4 +19,11 @@ class Utils
       return object
     end
   end
+
+  def self.validate_is_ip_address(ip)
+    return false if ip.nil?
+    # Doesn't properly validate. Private IPs will match, as will something like 999.999.999.999
+    ip_regex = /\b\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\b/
+    !(ip =~ ip_regex).nil?
+  end
 end

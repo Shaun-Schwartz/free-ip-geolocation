@@ -3,5 +3,4 @@ Rails.application.routes.draw do
   require 'sidekiq/web'
   mount Sidekiq::Web => '/sidekiq'
   post :geolocation, controller: :ip_addresses, action: :geolocation
-  post :geolocations, controller: :ip_addresses, action: :geolocations
 end

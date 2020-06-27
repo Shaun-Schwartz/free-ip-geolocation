@@ -1,19 +1,13 @@
 class IpAddressRange < ApplicationRecord
   include Searchable
-
   belongs_to :country
-
-  scope :find_by_ip, -> (ip) do
-    ip = Utils.ip_to_int(ip)
-    where("? BETWEEN start_int AND end_int", ip)
-  end
 
   UPSERTABLE_COLUMNS = [:country_id, :start_ip, :end_ip, :start_int, :end_int, :mask]
 
   def self.search(ip)
     res = elastic_search(ip)
+    return unless res.first
     country_id = res.first.country_id
-    return '' unless country_id
     Country.find(country_id)
   end
 
