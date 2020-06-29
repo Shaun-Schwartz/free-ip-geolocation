@@ -6,7 +6,6 @@ class ParseCsvBatchJob
     batch.on(:success, ParseCsvBatchJob)
     batch.jobs do
       File.open(filename, 'r').each do |line|
-        sleep(0.05)
         csv_line = CSV.parse(line).flatten
         next if csv_line.first == "0"
         CsvLineJob.perform_async(csv_line)
