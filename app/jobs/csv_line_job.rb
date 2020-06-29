@@ -4,16 +4,7 @@ class CsvLineJob
 
   def perform(line)
     return if line.empty?
-    @properties = {
-      start_ip: Utils.int_to_ip(line[0]),
-      end_ip: Utils.int_to_ip(line[1]),
-      start_int: line[0].to_i,
-      end_int: line[1].to_i,
-      abbreviation: line[2],
-      country: line[3],
-      region: line[4],
-      city: line[5]
-    }
+    @properties = Mappers::Csv.new(line).mapped_attributes
     save_country
     upsert_ip_range
   end
@@ -28,7 +19,14 @@ class CsvLineJob
   end
 
   def upsert_ip_range
-    mapped_ip_range = Mappers::IpAddressRange.new(@properties).mapped
-    @country.ip_address_ranges.create(mapped_ip_range)
+    ip_address_range = @country.ip_address_ranges.find_or_create_by(
+      start_ip: @properties[:start_ip],
+      end_ip: @properties[:end_ip]
+    )
+    ip_address_range.update(
+      country_id: @country.id,
+      start_int: @properties[:start_int],
+      end_int: @properties[:end_int],
+    )
   end
 end

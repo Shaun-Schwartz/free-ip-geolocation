@@ -4,7 +4,6 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.6.5'
 
 gem 'activeadmin', '~> 2.7'
-gem 'activerecord-import'
 gem 'arctic_admin', '~> 3.2'
 gem 'bcrypt', '~> 3.1.7'
 gem 'bootsnap', '>= 1.4.2', require: false
@@ -24,6 +23,7 @@ gem 'rails', '~> 6.0.0'
 gem 'sass-rails', '~> 5'
 gem 'skylight'
 gem 'sidekiq', '~> 6.0.5'
+gem 'sidekiq-batch'
 gem 'webpacker', '~> 4.0'
 
 # Use Active Storage variant

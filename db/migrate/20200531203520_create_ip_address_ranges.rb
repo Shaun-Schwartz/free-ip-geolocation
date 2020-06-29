@@ -9,7 +9,7 @@ class CreateIpAddressRanges < ActiveRecord::Migration[5.1]
       t.integer :mask, index: true
       t.timestamps
     end
-    add_index :ip_address_ranges, [:country_id, :start_ip, :end_ip, :start_int, :end_int],
+    add_index :ip_address_ranges, [:country_id, :start_ip, :end_ip],
       unique: true, name: 'index_ip_address_range_unique_for_upsert'
   end
 end

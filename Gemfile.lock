@@ -56,8 +56,6 @@ GEM
     activerecord (6.0.3.1)
       activemodel (= 6.0.3.1)
       activesupport (= 6.0.3.1)
-    activerecord-import (1.0.5)
-      activerecord (>= 3.2)
     activestorage (6.0.3.1)
       actionpack (= 6.0.3.1)
       activejob (= 6.0.3.1)
@@ -318,6 +316,8 @@ GEM
       rack (~> 2.0)
       rack-protection (>= 2.0.0)
       redis (>= 4.1.0)
+    sidekiq-batch (0.1.6)
+      sidekiq (>= 3)
     skylight (4.3.0)
       skylight-core (= 4.3.0)
     skylight-core (4.3.0)
@@ -367,7 +367,6 @@ PLATFORMS
 
 DEPENDENCIES
   activeadmin (~> 2.7)
-  activerecord-import
   arctic_admin (~> 3.2)
   bcrypt (~> 3.1.7)
   bootsnap (>= 1.4.2)
@@ -393,6 +392,7 @@ DEPENDENCIES
   sass-rails (~> 5)
   shoulda-matchers
   sidekiq (~> 6.0.5)
+  sidekiq-batch
   skylight
   spring
   spring-watcher-listen (~> 2.0.0)

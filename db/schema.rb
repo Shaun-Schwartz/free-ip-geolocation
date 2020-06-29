@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(version: 2020_05_31_203520) do
     t.integer "mask"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["country_id", "start_ip", "end_ip", "start_int", "end_int"], name: "index_ip_address_range_unique_for_upsert", unique: true
+    t.index ["country_id", "start_ip", "end_ip"], name: "index_ip_address_range_unique_for_upsert", unique: true
     t.index ["country_id"], name: "index_ip_address_ranges_on_country_id"
     t.index ["end_int"], name: "index_ip_address_ranges_on_end_int"
     t.index ["end_ip"], name: "index_ip_address_ranges_on_end_ip"
