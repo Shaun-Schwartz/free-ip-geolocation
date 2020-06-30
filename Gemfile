@@ -24,6 +24,7 @@ gem 'sass-rails', '~> 5'
 gem 'skylight'
 gem 'sidekiq', '~> 6.0.5'
 gem 'sidekiq-batch'
+gem 'sidekiq-scheduler', '~> 3.0.1'
 gem 'webpacker', '~> 4.0'
 
 # Use Active Storage variant

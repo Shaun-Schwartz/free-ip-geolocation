@@ -8,3 +8,11 @@ production:
   - critical
   - default
   - low
+
+:schedule:
+  parse_csv_batch_job:
+    cron: '0 1 * * 1 America/Los_Angeles'
+    class: ParseCsvBatchJob
+  ip_address_range_import_job:
+    cron: '0 1 * * 2 America/Los_Angeles'
+    class: IpAddressRangeImportJob
