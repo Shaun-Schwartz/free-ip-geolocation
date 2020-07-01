@@ -19,11 +19,11 @@ class Mappers::Csv
   end
 
   def start_ip
-    Utils.int_to_ip(line[0])
+    Utils::Ip.int_to_ip(line[0])
   end
 
   def end_ip
-    Utils.int_to_ip(line[1])
+    Utils::Ip.int_to_ip(line[1])
   end
 
   def start_int
