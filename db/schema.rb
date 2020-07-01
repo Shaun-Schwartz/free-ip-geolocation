@@ -15,20 +15,8 @@ ActiveRecord::Schema.define(version: 2020_05_31_203520) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "countries", force: :cascade do |t|
-    t.string "name"
-    t.string "abbreviation"
-    t.string "region"
-    t.string "city"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["city"], name: "index_countries_on_city"
-    t.index ["name", "abbreviation", "region", "city"], name: "index_countries_on_name_and_abbreviation_and_region_and_city", unique: true
-    t.index ["region"], name: "index_countries_on_region"
-  end
-
   create_table "ip_address_ranges", force: :cascade do |t|
-    t.bigint "country_id"
+    t.bigint "location_id"
     t.string "start_ip"
     t.string "end_ip"
     t.bigint "start_int"
@@ -36,13 +24,23 @@ ActiveRecord::Schema.define(version: 2020_05_31_203520) do
     t.integer "mask"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["country_id", "start_ip", "end_ip"], name: "index_ip_address_range_unique_for_upsert", unique: true
-    t.index ["country_id"], name: "index_ip_address_ranges_on_country_id"
     t.index ["end_int"], name: "index_ip_address_ranges_on_end_int"
     t.index ["end_ip"], name: "index_ip_address_ranges_on_end_ip"
+    t.index ["location_id"], name: "index_ip_address_ranges_on_location_id"
     t.index ["mask"], name: "index_ip_address_ranges_on_mask"
     t.index ["start_int"], name: "index_ip_address_ranges_on_start_int"
+    t.index ["start_ip", "end_ip"], name: "index_ip_address_ranges_on_start_ip_and_end_ip", unique: true
     t.index ["start_ip"], name: "index_ip_address_ranges_on_start_ip"
+  end
+
+  create_table "locations", force: :cascade do |t|
+    t.string "country"
+    t.string "abbreviation"
+    t.string "region"
+    t.string "city"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["country"], name: "index_locations_on_country"
   end
 
 end

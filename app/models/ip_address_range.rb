@@ -1,14 +1,12 @@
 class IpAddressRange < ApplicationRecord
   include Searchable
-  belongs_to :country
-
-  UPSERTABLE_COLUMNS = [:country_id, :start_ip, :end_ip, :start_int, :end_int, :mask]
+  belongs_to :location, optional: true
 
   def self.search(ip)
     res = elastic_search(ip)
     return unless res.first
-    country_id = res.first.country_id
-    Country.find(country_id)
+    location_id = res.first.location_id
+    Location.find(location_id)
   end
 
   def self.elastic_search(ip)
