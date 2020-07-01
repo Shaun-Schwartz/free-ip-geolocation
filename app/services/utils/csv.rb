@@ -8,17 +8,15 @@ class Utils::Csv
     IO.readlines(input_file).each do |line|
       file_lines += line
       line_count += 1
-      puts "line_count: #{line_count}"
       if should_write?(line_count, lines_per_file, total_lines)
         file_name = file_name(input_file, file_count)
         generated_files.push(file_name)
         File.open("#{path}#{file_name}", 'w') { |f| f.puts file_lines }
         file_lines = ''
-        line_count = 0
+        puts "Total files written: #{file_count}"
         file_count += 1
       end
     end
-
     generated_files
   end
 
