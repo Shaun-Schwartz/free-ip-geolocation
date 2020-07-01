@@ -1,3 +1,4 @@
+require 'sidekiq-scheduler'
 class IpAddressRangeImportJob
   include Sidekiq::Worker
 

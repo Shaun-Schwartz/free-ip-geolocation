@@ -1,3 +1,4 @@
+require 'sidekiq-scheduler'
 class ParseCsvBatchJob
   include Sidekiq::Worker
 
@@ -5,11 +6,7 @@ class ParseCsvBatchJob
     batch = Sidekiq::Batch.new
     batch.on(:success, ParseCsvBatchJob)
     batch.jobs do
-      File.open(filename, 'r').each do |line|
-        csv_line = CSV.parse(line).flatten
-        next if csv_line.first == "0"
-        CsvLineJob.perform_async(csv_line)
-      end
+      CSV.foreach(filename, headers: false) { |line| CsvLineJob.perform_async(line) }
     end
   end
 

@@ -1,10 +1,11 @@
 require 'sidekiq-scheduler'
 class CsvLineJob
   include Sidekiq::Worker
+  sidekiq_options queue: 'critical'
   attr_accessor :properties
 
   def perform(line)
-    return if line.empty?
+    return if line.empty? || line.first == "0"
     @properties = Mappers::Csv.new(line).mapped_attributes
     save_location
     upsert_ip_range
