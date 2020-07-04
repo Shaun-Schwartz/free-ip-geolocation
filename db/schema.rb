@@ -25,12 +25,9 @@ ActiveRecord::Schema.define(version: 2020_05_31_203520) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["end_int"], name: "index_ip_address_ranges_on_end_int"
-    t.index ["end_ip"], name: "index_ip_address_ranges_on_end_ip"
     t.index ["location_id"], name: "index_ip_address_ranges_on_location_id"
-    t.index ["mask"], name: "index_ip_address_ranges_on_mask"
     t.index ["start_int"], name: "index_ip_address_ranges_on_start_int"
     t.index ["start_ip", "end_ip"], name: "index_ip_address_ranges_on_start_ip_and_end_ip", unique: true
-    t.index ["start_ip"], name: "index_ip_address_ranges_on_start_ip"
   end
 
   create_table "locations", force: :cascade do |t|
@@ -40,7 +37,7 @@ ActiveRecord::Schema.define(version: 2020_05_31_203520) do
     t.string "city"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["country"], name: "index_locations_on_country"
+    t.index ["country", "abbreviation", "region", "city"], name: "index_locations_on_country_and_abbreviation_and_region_and_city", unique: true
   end
 
 end

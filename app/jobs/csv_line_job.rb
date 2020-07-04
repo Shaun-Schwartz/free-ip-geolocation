@@ -5,10 +5,10 @@ class CsvLineJob
   attr_accessor :properties
 
   def perform(line)
-    return if line.empty? || line.first == "0"
+    return if line.empty?
     @properties = Mappers::Csv.new(line).mapped_attributes
     save_location
-    upsert_ip_range
+    save_ip_range
   end
 
   def save_location
@@ -20,7 +20,7 @@ class CsvLineJob
     )
   end
 
-  def upsert_ip_range
+  def save_ip_range
     ip_address_range = @location.ip_address_ranges.find_or_create_by(
       start_ip: properties[:start_ip],
       end_ip: properties[:end_ip]
