@@ -1,4 +1,5 @@
 class IpAddressesController < ApplicationController
+  include IpValidations
   before_action :validate_ip_params
 
   def geolocation
@@ -9,7 +10,9 @@ class IpAddressesController < ApplicationController
       locations = @ip_array.map do |ip|
         IpAddressRange.search(ip)
       end
-      render json: LocationSerializer.new(locations).serializable_hash
+      if locations
+        render json: LocationSerializer.new(locations).serializable_hash
+      end
     end
   end
 
@@ -22,24 +25,8 @@ class IpAddressesController < ApplicationController
     if @single_ip
       validate_ip_address
     elsif @ip_array
-      validate_ip_addresses
-    end
-  end
-
-  def validate_ip_address
-    if @single_ip
-      unless Utils::Ip.validate_is_ip_address(@single_ip)
-        render json: { error: "1 that doesn't look like an ip address"},
-          status: :unprocessable_entity
-        end
-    end
-  end
-
-  def validate_ip_addresses
-    @ip_array.each do |ip|
-      unless Utils::Ip.validate_is_ip_address(ip)
-        render json: { error: "2 that doesn't look like an ip address"},
-          status: :unprocessable_entity
+      if valid_ip_array_length
+      else validate_ip_addresses
       end
     end
   end

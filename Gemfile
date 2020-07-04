@@ -9,7 +9,6 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'bootstrap', '~> 4.3.1'
 gem 'bootstrap_form', '~> 4.0'
-# gem 'devise', '~> 4.7'
 gem 'fast_jsonapi'
 gem 'elasticsearch-model'
 gem 'elasticsearch-rails'

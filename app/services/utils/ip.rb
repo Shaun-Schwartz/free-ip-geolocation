@@ -9,7 +9,7 @@ class Utils::Ip
   	return ipnum.to_i
   end
 
-  def self.validate_is_ip_address(ip)
+  def self.is_valid_ip_address?(ip)
     return false if ip.nil?
     # Doesn't properly validate. Private IPs will match, as will something like 999.999.999.999
     ip_regex = /\b\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\b/
