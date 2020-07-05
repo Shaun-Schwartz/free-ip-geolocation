@@ -1,4 +1,4 @@
-class IpAddressesController < ApplicationController
+class Api::IpAddressesController < Api::ApplicationController
   include IpValidations
   before_action :validate_ip_params
 
