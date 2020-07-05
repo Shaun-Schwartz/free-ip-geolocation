@@ -1,5 +1,7 @@
-<h3>Welcome</h3>
-<p>welcome</p>
-<p>welcome</p>
-<p>welcome</p>
-<p>welcome</p>
+<h1>Welcome</h1>
+<% if logged_in? %>
+  <h1>You are Logged In</h1>
+<% else %>
+  <%= button_to "Login", '/login', method: :get%>
+  <%= button_to "Sign Up", '/users/new', method: :get%>
+<% end %>
