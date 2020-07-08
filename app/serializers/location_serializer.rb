@@ -1,4 +1,5 @@
 class LocationSerializer
   include FastJsonapi::ObjectSerializer
-  attributes :country, :abbreviation, :region, :city, :updated_at
+  set_id :mock_id
+  attributes :country, :abbreviation, :region, :city
 end
