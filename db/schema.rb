@@ -18,10 +18,10 @@ ActiveRecord::Schema.define(version: 2020_07_04_204536) do
 
   create_table "api_keys", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "key"
-    t.boolean "active"
-    t.uuid "users_id"
+    t.boolean "active", default: true
+    t.uuid "user_id", null: false
     t.index ["key"], name: "index_api_keys_on_key", unique: true
-    t.index ["users_id"], name: "index_api_keys_on_users_id"
+    t.index ["user_id"], name: "index_api_keys_on_user_id"
   end
 
   create_table "ip_address_ranges", force: :cascade do |t|

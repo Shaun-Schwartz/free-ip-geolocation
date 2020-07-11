@@ -1,0 +1,18 @@
+.auth-form-container {
+  padding-top: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 300px;
+  color: white;
+}
+
+.auth-form-action {
+  margin-top: 10px;
+}

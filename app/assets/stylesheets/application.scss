@@ -13,3 +13,28 @@
  *= require_tree .
  *= require_self
  */
+@import "bootstrap";
+@import "constants";
+
+@font-face {
+  font-family: 'Raleway';
+  src: url('raleway/Raleway-Regular.ttf');
+  font-family: 'RalewaySemibold';
+  src: url('raleway/Raleway-SemiBold.ttf');
+}
+
+body {
+  font-family: 'RalewaySemibold';
+  padding: 20px 50px;
+  height: 100%;
+  width: 100%;
+  background-image: linear-gradient(to bottom right, $purple, $dark-purple);
+  display: flex;
+  flex-direction: column;
+}
+
+.above-the-fold {
+  width: 100%;
+  height: 700px;
+  background-color: transparent;
+}

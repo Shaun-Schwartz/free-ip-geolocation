@@ -1,5 +1,7 @@
 {
   "name": "ip_addresses",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "@activeadmin/activeadmin": "^2.7.0"
+  }
 }

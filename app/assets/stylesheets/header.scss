@@ -1,0 +1,22 @@
+.header-container {
+  background-color: transparent;
+  padding-right: 20px;
+}
+
+.header-inner-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header-logo {
+  font-size: 1.75rem;
+  &:hover {
+    text-decoration: none !important;
+  }
+}
+
+.header-link {
+  padding-right: 20px;
+}

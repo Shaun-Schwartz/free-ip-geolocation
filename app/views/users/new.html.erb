@@ -1,8 +1,11 @@
-<h1>Sign Up</h1>
-<%= form_for @user do |f|%>
-  <%= f.label :email %><br>
-  <%= f.text_field :email %><br>
-  <%= f.label :password %><br>
-  <%= f.password_field :password%><br>
-  <%= f.submit %>
-<%end%>
+<div class='auth-form-container'>
+  <%=form_tag users_path(@user), method: :post, class: 'auth-form' do %>
+    <%= label_tag :email %>
+    <%= text_field_tag :email %>
+    <%= label_tag :password %>
+    <%= password_field_tag :password, nil, id: 'password' %>
+    <%= label_tag :confirm_password %>
+    <%= password_field_tag :confirm_password, nil, id: 'confirm-password' %>
+    <%= submit_tag 'Sign Up', class: 'auth-form-action' %>
+  <% end %>
+</div>
