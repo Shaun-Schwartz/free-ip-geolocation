@@ -1,18 +1,9 @@
 $(document).ready(function() {
   var password = $('#password').val()
   var confirmPassword = $('#confirm-password').val()
-  confirmPassword.change(function() {
-    if (!minimumLength()) return
-    if (passwordsMatch) {
+  $('#confirm-password').change(function() {
+    if (password.length <= 6) return
+    if (password === confirmPassword)
       console.log("YES")
-    }
   })
 });
-
-function minimumLength(password) {
-  return password.length > 6
-}
-
-function passwordsMatch(password, confirmPassword) {
-  return password === confirmPassword
-}
