@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+  add_flash_types :error, :sucess
   protect_from_forgery with: :exception
   include ActionController::Helpers
 
