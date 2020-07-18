@@ -27,6 +27,7 @@ module IpAddresses
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+    config.active_job.queue_adapter = :sidekiq
     config.skylight.environments << "development"
   end
 end
