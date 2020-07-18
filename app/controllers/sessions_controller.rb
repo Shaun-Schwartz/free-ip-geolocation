@@ -5,13 +5,10 @@ class SessionsController < ApplicationController
     render 'sessions/new'
   end
 
-  def login
-  end
-
   def create
     @user = User.find_by(email: params[:email])
-    if @user && @user.authenticate(params[:password])
-       sessions[:user_id] = @user.id
+    if @user && @user.authenticate(params[:password]) && @user.confrimed?
+       session[:user_id] = @user.id
        redirect_to root_path
     else
        redirect_to '/login'
@@ -21,11 +18,5 @@ class SessionsController < ApplicationController
   def destroy
     session.delete(:user_id) if session[:user_id]
     redirect_to root_path
-  end
-
-  def welcome
-  end
-
-  def page_requires_login
   end
 end

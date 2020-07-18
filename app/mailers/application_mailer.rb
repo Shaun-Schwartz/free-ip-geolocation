@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'from@example.com'
+  default from: '<Simple IP Geo from@example.com>'
   layout 'mailer'
 end

@@ -57,6 +57,8 @@ ActiveRecord::Schema.define(version: 2020_07_04_204536) do
     t.string "password_reset_token"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["confirmed_at"], name: "index_users_on_confirmed_at"
+    t.index ["email"], name: "index_users_on_email", unique: true
   end
 
 end
