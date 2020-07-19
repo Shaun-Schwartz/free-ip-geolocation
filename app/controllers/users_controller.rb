@@ -8,7 +8,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(email: params['email'])
     if passwords_dont_match?
-      flash[:error] = 'Password and password confirmation must match'
+      flash[:warning] = 'Password and password confirmation must match'
       redirect_back fallback_location: new_user_path
     else
       @user.update(password: params['password'])

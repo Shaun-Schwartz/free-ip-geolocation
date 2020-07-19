@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   require 'sidekiq/web'
   mount Sidekiq::Web => '/sidekiq'
 
-  root 'pages#main'
+  root 'pages#home'
   resources :users, only: [:new, :create]
   resource :session, only: [:new, :create, :destroy]
   get 'login', to: 'sessions#new'

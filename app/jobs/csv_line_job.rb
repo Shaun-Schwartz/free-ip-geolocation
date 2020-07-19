@@ -21,7 +21,7 @@ class CsvLineJob
   end
 
   def save_ip_range
-    ip_address_range = @location.ip_address_ranges.find_or_create_by(
+    ip_address_range = IpAddressRange.find_or_initialize_by(
       start_ip: properties[:start_ip],
       end_ip: properties[:end_ip]
     )

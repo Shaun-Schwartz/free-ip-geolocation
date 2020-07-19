@@ -8,7 +8,6 @@ class Jobs::Monitor
 
   def running?
     queue = queue_name.nil? ? Sidekiq::Queue.all : Sidekiq::Queue.new(queue_name)
-    binding.pry
     queue.each do |job|
       return false if queue.size == 0
       return true if job.klass == job_name

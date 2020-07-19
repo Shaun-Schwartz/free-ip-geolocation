@@ -11,8 +11,10 @@ production:
 
 :schedule:
   ParseCsvBatchJob:
-    cron: '0 1 * * 1 America/Los_Angeles'
+    # Runs at 1am on the first of every month
+    cron: '0 1 1 * * America/Los_Angeles'
     class: ParseCsvBatchJob
   IpAddressRangeImportJob:
-    cron: '0 1 * * 2 America/Los_Angeles'
+    # Runs at 1am on the second of every month
+    cron: '0 1 2 * * America/Los_Angeles'
     class: IpAddressRangeImportJob
