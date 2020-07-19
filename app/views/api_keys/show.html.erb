@@ -1,0 +1,27 @@
+<div class='column-container padding-top-50'>
+  <% if @api_keys.present? %>
+    <div class='row-container'>
+      <table class=user-api-keys-table>
+        <thead class='user-api-keys-table-head'>
+          <tr>
+            <th>Token</th>
+            <th>Active</th>
+            <th>Created</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @api_keys.order_by_active.each do |api_key| %>
+            <tr>
+              <th><%= api_key.key %></th>
+              <th><%= api_key.active %></th>
+              <th><%= api_key.created_at %></th>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  <% end %>
+  <%= form_tag api_keys_path, method: :post, class: 'create-new-api-key-form' do %>
+    <%= submit_tag 'Create New API Key' %>
+  <% end %>
+</div>

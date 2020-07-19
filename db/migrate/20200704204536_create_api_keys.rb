@@ -4,6 +4,7 @@ class CreateApiKeys < ActiveRecord::Migration[6.0]
       t.string :key
       t.boolean :active, default: true
       t.uuid :user_id, index: true, null: false
+      t.timestamps
     end
     add_index :api_keys, :key, unique: true
   end

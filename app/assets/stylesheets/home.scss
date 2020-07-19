@@ -1,23 +1,8 @@
-.column-container {
-  padding-top: 50px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
 .geolocation {
   font-family: "Courier New", Courier, monospace;
-  display: flex;
-  flex-direction: column;
   justify-content: flex-start;
-  width: auto;
-  min-width: 300px;
-  max-width: 500px;
-  color: blue;
+  align-self: flex-end;
+  width: 400px;
   background-color: white;
   padding: 10px;
-}
-
-#request-ip {
 }

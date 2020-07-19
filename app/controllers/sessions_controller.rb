@@ -7,11 +7,15 @@ class SessionsController < ApplicationController
 
   def create
     @user = User.find_by(email: params[:email])
-    if @user && @user.authenticate(params[:password]) && @user.confrimed?
+    if @user && @user.authenticate(params[:password]) && @user.confirmed?
        session[:user_id] = @user.id
        redirect_to root_path
+    elsif @user && !@user.confirmed?
+      flash[:warning] = 'Please confirm your email address before logging in.'
+      redirect_to '/login'
     else
-       redirect_to '/login'
+      flash[:warning] = 'Incorrect email or password.'
+      redirect_to '/login'
     end
   end
 

@@ -79,6 +79,7 @@ GEM
       jquery-rails
     autoprefixer-rails (9.8.5)
       execjs
+    awesome_print (1.8.0)
     bcrypt (3.1.13)
     bootsnap (1.4.6)
       msgpack (~> 1.0)
@@ -408,6 +409,7 @@ PLATFORMS
 DEPENDENCIES
   activeadmin (~> 2.7)
   arctic_admin (~> 3.2)
+  awesome_print
   bcrypt (~> 3.1.7)
   bootsnap (>= 1.4.2)
   bootstrap (~> 4.3.1)

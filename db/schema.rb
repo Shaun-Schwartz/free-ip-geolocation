@@ -20,6 +20,8 @@ ActiveRecord::Schema.define(version: 2020_07_04_204536) do
     t.string "key"
     t.boolean "active", default: true
     t.uuid "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.index ["key"], name: "index_api_keys_on_key", unique: true
     t.index ["user_id"], name: "index_api_keys_on_user_id"
   end

@@ -6,6 +6,7 @@
     <div class='pages-links'>
       <%= link_to 'Docs', root_path, class: 'header-link' %>
       <% if logged_in? %>
+        <%= link_to 'Api Keys', api_keys_path, method: :get, class: 'header-link' %>
         <%= link_to 'Sign Out', session_path, method: :delete, class: 'header-link' %>
       <% else %>
         <%= link_to 'Sign In', login_path, class: 'header-link' %>

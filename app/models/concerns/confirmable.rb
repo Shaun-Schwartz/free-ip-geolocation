@@ -11,7 +11,7 @@ module Confirmable
     self.update(confirmation_token: token)
   end
 
-  def confrimed?
+  def confirmed?
     confirmed_at.present?
   end
 

@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   mount Sidekiq::Web => '/sidekiq'
 
   root 'pages#home'
+  resources :api_keys, only: [:index, :create]
   resources :users, only: [:new, :create]
   resource :session, only: [:new, :create, :destroy]
   get 'login', to: 'sessions#new'

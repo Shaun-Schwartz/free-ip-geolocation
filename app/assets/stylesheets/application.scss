@@ -40,3 +40,13 @@ body {
   height: 700px;
   background-color: transparent;
 }
+
+.column-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.row-container {
+  display: flex;
+  flex-direction: row;
+}
