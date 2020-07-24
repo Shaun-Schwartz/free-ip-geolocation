@@ -1,5 +1,6 @@
 class Api::IpAddressesController < Api::ApplicationController
   include IpValidations
+  before_action :verify_api_token
   before_action :validate_ip_params
 
   def geolocation
