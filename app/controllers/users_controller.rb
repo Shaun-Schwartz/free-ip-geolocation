@@ -21,7 +21,7 @@ class UsersController < ApplicationController
     confirmation_token = params[:token]
     email = Utils::Jwt.email_from_token(confirmation_token)
     user = User.find_by(email: email)
-    if user && !user.confrimed?
+    if user && !user.confirmed?
       user.confirm!
       flash[:success] = 'Email has been confirmed!'
       redirect_to new_session_path
@@ -32,7 +32,7 @@ class UsersController < ApplicationController
       flash[:error] = 'Email address has already been confirmed.'
       redirect_to root_path
     else
-      flash[:error] = 'Some has gone wrong. Please try again or feel free to contact us.'
+      flash[:error] = 'Something has gone wrong. Please try again or feel free to contact us.'
       redirect_to root_path
     end
   end
