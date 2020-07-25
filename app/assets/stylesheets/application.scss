@@ -25,11 +25,14 @@
   src: url('raleway/Raleway-SemiBold.ttf');
 }
 
-html body {
+html {
+  min-height: 100% !important;
+}
+
+body {
   font-family: 'RalewaySemibold';
   padding: 20px 50px;
-  height: 100vh;
-  background-image: linear-gradient(to bottom right, $purple, $dark-purple);
+  background-image: linear-gradient(to bottom right, $bg-main, $bg-dark);
   display: flex;
   flex-direction: column;
 }
@@ -42,4 +45,10 @@ html body {
 .row-container {
   display: flex;
   flex-direction: row;
+}
+
+.code-block {
+  font-family: "Courier New", Courier, monospace;
+  background-color: $very-light-grey;
+  margin-right: 20px;
 }

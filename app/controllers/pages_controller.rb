@@ -12,4 +12,7 @@ class PagesController < ApplicationController
     @json = LocationSerializer.new(location)
     render 'pages/home'
   end
+
+  def docs
+  end
 end
