@@ -1,23 +1,23 @@
-<div class='column-container docs-container mt50 p10'>
+<div class='column-container docs-container mt10 p10'>
   <h5>Getting started</h5>
   <p>1. <%= link_to 'Register', new_user_path, class: 'header-link' %></p>
   <p>2. Create an API key</p>
   <p>3. Start making requests!</p>
   <p class='code-block'>
     curl -X POST <%= "#{ENV['HOST_URL']}/api/geolocation" %> -H 'Content-Type: application/json'
-    -H 'Authororization: /L1plHP/mIVnwPkUVsP+BWiqEVTlDq4zqpzqDjy5XRY=' -H 'Accept: application/json'
+    -H 'Authorization: /L1plHP/mIVnwPkUVsP+BWiqEVTlDq4zqpzqDjy5XRY=' -H 'Accept: application/json'
     -d '{ "ip": "219.8.8.8" }'
   </p>
 </div>
 
-<div class="column-container docs-container mt50 p10">
+<div class="column-container docs-container mt10 p10">
   <h5>Api Keys</h5>
   <p> You can create API keys <%= link_to 'here', api_keys_path, class: 'header-link' %> </p>
   <p>Each account can only have 1 active API key. Creating a new API key will inactivate your current API key</p>
   <p>Make sure to keep your API key secret</p>
 </div>
 
-<div class="column-container docs-container mt50 p10">
+<div class="column-container docs-container mt10 p10">
   <h5>Response</h5>
   <p>The response complies with the <a href='https://jsonapi.org/' target='blank'>JSON:API spec</a> and will look like:
   <p class='code-block'>
@@ -25,7 +25,7 @@
   </p>
 </div>
 
-<div class="column-container docs-container mt50 p10">
+<div class="column-container docs-container mt10 p10">
   <h5>Rate limiting</h5>
-  <p>Currently all free accounts are limited to 15,000 requests a month</p>
+  <p>All free accounts are limited to a rolling limit of 15,000 requests every 30 days.</p>
 </div>

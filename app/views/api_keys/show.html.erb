@@ -1,4 +1,4 @@
-<div class='column-container pt50'>
+<div class='column-container'>
   <% if @api_keys.present? %>
     <div class='row-container'>
       <table class=user-api-keys-table>
@@ -12,7 +12,7 @@
         <tbody>
           <% @api_keys.order_by_active.each do |api_key| %>
             <tr>
-              <th><%= api_key.key %></th>
+              <th><%= api_key.token %></th>
               <th><%= api_key.active %></th>
               <th><%= api_key.created_at %></th>
             </tr>

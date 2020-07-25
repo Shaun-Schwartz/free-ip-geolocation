@@ -1,9 +1,15 @@
-<div class='column-container pt50'>
-  <div class='column-container geolocation code-block p10'>
-    <div id='request-ip'><p class='fa fa-map-marker'><%= @request_ip %></p></div>
-    <p>country: <%= @location.country %>,</p>
-    <p>abbreviation: <%= @location.abbreviation %>,</p>
-    <p>region: <%= @location.region %>,</p>
-    <p>city: <%= @location.city %></p>
+<div class="row-container main-description-container">
+  <div class="main-description mb10">
+    <h5>Locate visitors & requests by IP address</h5>
+    <ul>
+      <li>Easy to use</li>
+      <li>Complies with the JSON:API spec</li>
+      <li>Works with any programming language</li>
+    </ul>
+    <div class="main-description-buttons-container">
+      <%= button_to "Register Now", new_user_path %>
+      <%= button_to "Documentation", docs_path %>
+    </div>
   </div>
+  <%= render "partials/request_geolocation" %>
 </div>

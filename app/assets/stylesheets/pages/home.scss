@@ -1,6 +1,28 @@
 @import "colors/colors";
+.main-description-container {
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.main-description {
+  width: 400px;
+  color: white;
+  text-shadow:1px 1px 0 #444
+}
+
+.main-description-buttons-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
 .geolocation {
   justify-content: flex-start;
   align-self: flex-end;
   width: 400px;
+}
+
+.header-brand {
+  display: flex;
+  flex-direction: row;
 }
