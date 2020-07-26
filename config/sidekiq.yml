@@ -10,11 +10,15 @@ production:
   - low
 
 :schedule:
-  ParseCsvBatchJob:
-    # Runs at 1am on the first of every month
-    cron: '0 1 1 * * America/Los_Angeles'
-    class: ParseCsvBatchJob
+  CleanUpRequestsBatchJob:
+    # Runs at 5am Everyday
+    cron: '0 2 15 * * America/Los_Angeles'
+    class: CleanUpRequestsBatchJob
   IpAddressRangeImportJob:
-    # Runs at 1am on the second of every month
-    cron: '0 1 2 * * America/Los_Angeles'
+    # Runs at 2am on the 2nd of every month
+    cron: '0 2 2 * * America/Los_Angeles'
     class: IpAddressRangeImportJob
+  ParseCsvBatchJob:
+    # Runs at 11pm on the 1st of every month
+    cron: '0 23 1 * * America/Los_Angeles'
+    class: ParseCsvBatchJob
