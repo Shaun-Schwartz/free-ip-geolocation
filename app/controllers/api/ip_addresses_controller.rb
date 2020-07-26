@@ -1,18 +1,18 @@
 class Api::IpAddressesController < Api::ApplicationController
   include IpValidations
+  include Api::Concerns::CurrentApiUser
   before_action :verify_api_token
+  before_action :current_api_user
   before_action :validate_ip_params
 
   def geolocation
-    if @single_ip
-      location = IpAddressRange.search(@single_ip)
-      render json: LocationSerializer.new(location)
-    end
+    current_api_user.create_request(@ip)
+    location = IpAddressRange.search(@ip)
+    render json: LocationSerializer.new(location)
   end
 
   private
   def validate_ip_params
-    @single_ip = params[:ip] if params[:ip]
-    validate_ip_address if @single_ip
+    @ip = params.require(:ip)
   end
 end

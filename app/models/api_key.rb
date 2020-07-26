@@ -5,8 +5,8 @@ class ApiKey < ApplicationRecord
   scope :order_by_active, -> { order('active DESC') }
 
   def self.create_new(user)
-    key = SecureRandom.base64(32)
-    new_api_key = user.api_keys.new(key: key)
+    token = SecureRandom.base64(32)
+    new_api_key = user.api_keys.new(token: token)
     user.api_keys.update_all(active: false)
     new_api_key.save
   end
