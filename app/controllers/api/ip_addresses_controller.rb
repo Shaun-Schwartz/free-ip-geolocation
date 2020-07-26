@@ -12,7 +12,8 @@ class Api::IpAddressesController < Api::ApplicationController
 
   private
   def validate_ip_params
-    @ip = params.require(:ip)
+    @ip = params[:ip]
+    render json: {}, status: 422 and return unless @ip.present?
     validate_ip_address
   end
 end
