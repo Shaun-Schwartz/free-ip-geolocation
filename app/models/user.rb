@@ -7,6 +7,8 @@ class User < ApplicationRecord
 
   after_create :create_confirmation_token_and_send_email
 
+  FREE_RATE_LIMIT = 15_000
+
   def create_api_key
     self.api_keys.update_all(active: false) if self.api_keys.present?
     self.api_keys.create(token: SecureRandom.hex(20))

@@ -1,21 +1,18 @@
 class Api::ApplicationController < ActionController::Base
   include Api::Concerns::CurrentApiUser
-
   helper_method :current_api_user
+  before_action :verify_api_token
+  before_action :rate_limit_not_reached
 
   def verify_api_token
-    auth_token = request.headers['Authorization']
-    user = User.joins(:api_keys)
-                .where('api_keys.active = true')
-                .where('api_keys.token = ?', auth_token)
-                .last
-    if !user
-      render json: {}, status: 401
+    if !current_api_user
+      render json: {}, status: 401 and return
     end
   end
 
-  def verify_api_call_limit
-    #requests_30_days = User.joins(:requests)
-
+  def rate_limit_not_reached
+    if current_api_user.requests.count >= User::FREE_RATE_LIMIT
+      render json: {}, status: 429 and return
+    end
   end
 end

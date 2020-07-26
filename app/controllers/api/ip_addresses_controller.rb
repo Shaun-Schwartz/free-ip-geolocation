@@ -1,7 +1,6 @@
 class Api::IpAddressesController < Api::ApplicationController
   include IpValidations
   include Api::Concerns::CurrentApiUser
-  before_action :verify_api_token
   before_action :current_api_user
   before_action :validate_ip_params
 
