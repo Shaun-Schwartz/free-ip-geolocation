@@ -10,23 +10,10 @@ module IpValidations
   end
 
   def validate_ip_address
-    unless Utils::Ip.is_valid_ip_address?(@single_ip)
+    unless Utils::Ip.is_valid_ip_address?(@ip)
       render json: { error: "That doesn't look like an ipv4 address"},
         status: :unprocessable_entity
       return
-    end
-  end
-
-  def validate_ip_addresses
-    invalid_ip_array = []
-    @ip_array.each do |ip|
-      next if Utils::Ip.is_valid_ip_address?(ip)
-      invalid_ip_array.push(ip)
-      if invalid_ip_array.present?
-        render json: { error: "That #{invalid_ip_array} doesn't look like an ipv4 address"},
-          status: :unprocessable_entity
-        return
-      end
     end
   end
 end

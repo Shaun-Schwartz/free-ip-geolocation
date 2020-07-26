@@ -14,5 +14,6 @@ class Api::IpAddressesController < Api::ApplicationController
   private
   def validate_ip_params
     @ip = params.require(:ip)
+    validate_ip_address
   end
 end
