@@ -7,8 +7,8 @@
       <li>Works with any programming language</li>
     </ul>
     <div class="main-description-buttons-container">
-      <%= button_to "Register Now", new_user_path %>
-      <%= button_to "Documentation", docs_path %>
+      <%= button_to "Register Now", new_user_path, method: :get %>
+      <%= button_to "Documentation", docs_path, method: :get %>
     </div>
   </div>
   <%= render "partials/request_geolocation" %>
