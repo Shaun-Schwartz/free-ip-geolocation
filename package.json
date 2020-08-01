@@ -2,6 +2,7 @@
   "name": "ip_addresses",
   "private": true,
   "dependencies": {
-    "@activeadmin/activeadmin": "^2.7.0"
+    "@activeadmin/activeadmin": "^2.7.0",
+    "webpack": "^4.44.1"
   }
 }
