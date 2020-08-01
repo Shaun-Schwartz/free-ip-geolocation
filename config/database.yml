@@ -35,6 +35,6 @@ test:
 #
 production:
   <<: *default
-  database: ip_addresses_production
-  username: ip_addresses
-  password: <%= ENV['IP_ADDRESSES_DATABASE_PASSWORD'] %>
+  database: free_ip_geolocation_production
+  username: deploy
+  password: <%= ENV['FREE_IP_GEOLOCATION_DB_PASSWORD'] %>
