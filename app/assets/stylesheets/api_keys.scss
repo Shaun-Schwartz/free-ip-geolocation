@@ -12,3 +12,15 @@
   align-self: flex-end;
   margin-top: 10px;
 }
+
+.api-key-active {
+  background-color: limegreen;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.api-key-inactive {
+  color: grey;
+  padding-left: 5px;
+  padding-right: 5px;
+}

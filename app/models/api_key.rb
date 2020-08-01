@@ -3,6 +3,7 @@ class ApiKey < ApplicationRecord
 
   scope :active, -> { where(active: true) }
   scope :order_by_active, -> { order('active DESC') }
+  scope :order_by_created, -> { order('created_at DESC') }
 
   def self.create_new(user)
     token = SecureRandom.base64(32)

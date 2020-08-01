@@ -4,16 +4,22 @@
       <table class=user-api-keys-table>
         <thead class='user-api-keys-table-head'>
           <tr>
-            <th>Token</th>
+            <th class='px5'>Token</th>
             <th>Active</th>
             <th>Created</th>
           </tr>
         </thead>
         <tbody>
-          <% @api_keys.order_by_active.each do |api_key| %>
+          <% @api_keys.order_by_active.order_by_created.each do |api_key| %>
             <tr>
-              <th><%= api_key.token %></th>
-              <th><%= api_key.active %></th>
+              <th>
+                <span class='px5'><%= api_key.token %></span>
+              </th>
+              <th>
+                <span class=<%= api_key.active ? 'api-key-active' : 'api-key-inactive'%>>
+                  <%= api_key.active %>
+                </span>
+              </th>
               <th><%= api_key.created_at %></th>
             </tr>
           <% end %>
