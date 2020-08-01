@@ -31,3 +31,12 @@
 
 en:
   hello: "Hello world"
+  something_went_wrong: "Whoops, something went wrong please try again."
+  user:
+    reset_password_request: "Forgot password"
+    passwords_must_match: "Password and password confirmation must match"
+  user_mailer:
+    confirm_email: "To confirm your account and login click here: "
+    confirm_email_link: "Confirm email"
+    reset_password: "To reset your password click here: "
+    reset_password_link: "Reset password"

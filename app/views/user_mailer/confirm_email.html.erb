@@ -4,6 +4,6 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    To login to the site, just follow this link: <%= link_to 'Confirm email', confirm_email_url(@user.confirmation_token) %>
+    <%= t('user_mailer.confirm_email') %> <%= link_to t('confirm_email_link'), confirm_email_url(@user.confirmation_token) %>
   </body>
 </html>

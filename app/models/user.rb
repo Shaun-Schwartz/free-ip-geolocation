@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   include Confirmable
+  include Resettable
   has_secure_password
   has_many :api_keys, inverse_of: :user
   has_one :active_api_key, -> { where(active: true) }, class_name: :api_key

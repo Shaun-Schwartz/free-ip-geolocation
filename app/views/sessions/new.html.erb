@@ -1,9 +1,10 @@
 <div class='auth-form-container'>
   <%=form_tag session_path, method: :post, class: 'auth-form' do %>
     <%= label_tag :email%>
-    <%= text_field_tag :email %>
+    <%= email_field_tag :email %>
     <%= label_tag :password%>
     <%= password_field_tag :password%>
     <%= submit_tag 'Sign In', class: 'auth-form-action' %>
+    <%= link_to t('user.reset_password_request'), reset_password_request_form_path %>
   <% end %>
 </div>

@@ -1,7 +1,7 @@
 <div class='auth-form-container'>
   <%=form_tag users_path(@user), method: :post, class: 'auth-form' do %>
     <%= label_tag :email %>
-    <%= text_field_tag :email %>
+    <%= email_field_tag :email %>
     <%= label_tag :password %>
     <%= password_field_tag :password, nil, id: 'password' %>
     <%= label_tag :confirm_password %>
