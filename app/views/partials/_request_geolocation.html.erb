@@ -1,9 +1,9 @@
 <div class='column-container'>
   <div class='column-container geolocation code-block p10'>
     <div id='request-ip'><p class='fa fa-map-marker'><%= @request_ip %></p></div>
-    <p>country: <%= @location.country %>,</p>
-    <p>abbreviation: <%= @location.abbreviation %>,</p>
-    <p>region: <%= @location.region %>,</p>
-    <p>city: <%= @location.city %></p>
+    <p>country: <%= @location&.country %>,</p>
+    <p>abbreviation: <%= @location&.abbreviation %>,</p>
+    <p>region: <%= @location&.region %>,</p>
+    <p>city: <%= @location&.city %></p>
   </div>
 </div>

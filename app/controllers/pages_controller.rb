@@ -8,7 +8,6 @@ class PagesController < ApplicationController
     else
       @location = IpAddressRange.search(@request_ip)
     end
-    @json = LocationSerializer.new(location)
     render 'pages/home'
   end
 
