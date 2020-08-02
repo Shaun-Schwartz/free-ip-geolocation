@@ -1,4 +1,4 @@
-server '35.182.157.203', user: 'deploy', roles: %w{app db web}
+server 'freeipgeolocation.com', user: 'deploy', roles: %w{app db web}
 
 # server-based syntax
 # ======================
