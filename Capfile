@@ -1,3 +1,4 @@
+require 'sshkit/sudo'
 # Load DSL and set up stages
 require "capistrano/setup"
 
@@ -34,9 +35,19 @@ install_plugin Capistrano::SCM::Git
 # require "capistrano/rails/assets"
 # require "capistrano/rails/migrations"
 # require "capistrano/passenger"
-require "capistrano/rails"
-require "capistrano/rbenv"
-require "capistrano/passenger"
+
+# require 'capistrano/passenger'
+# require 'capistrano/rails'
+# require 'capistrano/rbenv'
+# require 'capistrano/sidekiq'
+
+require 'capistrano/rails'
+require 'capistrano/rbenv'
+require 'capistrano/bundler'
+require 'capistrano/passenger'
+require 'capistrano/linked_files'
+require 'capistrano/dotenv/tasks'
+
 
 # Load custom tasks from `lib/capistrano/tasks` if you have any defined
 Dir.glob("lib/capistrano/tasks/*.rake").each { |r| import r }
@@ -45,6 +56,8 @@ set :rbenv_type, :user
 set :rbenv_ruby, '2.7.1'
 set :application, "free-ip-geolocation"
 set :repo_url, "git@github.com:Shaun-Schwartz/free-ip-geolocation.git"
+set :rails_env, 'production'
+set :passenger_restart_with_touch, true
 
 # Deploy to the user's home directory
 set :deploy_to, "/home/deploy/#{fetch :application}"

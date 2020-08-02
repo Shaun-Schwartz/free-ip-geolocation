@@ -12,6 +12,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'bootstrap', '~> 4.3.1'
 gem 'bootstrap_form', '~> 4.0'
+gem 'dotenv-rails'
 gem 'fast_jsonapi', '~> 1.5'
 gem 'elasticsearch-model', '~> 7.1.0'
 gem 'elasticsearch-rails', '~> 7.1.0'
@@ -38,7 +39,6 @@ gem 'webpacker', '~> 4.0'
 
 group :development, :test do
   gem 'amazing_print'
-  gem 'dotenv-rails'
   gem 'faker'
   gem 'letter_opener'
   gem 'pry-byebug'
@@ -53,11 +53,15 @@ end
 group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
   gem 'capistrano', '3.14.1'
+  gem 'capistrano-dotenv-tasks', '0.1.5', require: false
+  gem 'capistrano-linked-files', '1.2.0'
+  gem 'capistrano-passenger', '0.2.0'
   gem 'capistrano-rails', '1.4.0'
   gem 'capistrano-rbenv', '2.1.4 '
-  gem 'capistrano-passenger', '0.2.0'
+  gem 'capistrano-sidekiq'
   gem 'listen', '>= 3.0.5', '< 3.2'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+  gem 'sshkit-sudo', '0.1.0'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
