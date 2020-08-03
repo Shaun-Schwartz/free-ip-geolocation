@@ -20,9 +20,9 @@
 
 @font-face {
   font-family: 'Raleway';
-  src: url('raleway/Raleway-Regular.ttf');
+  src: asset_url('raleway/Raleway-Regular.ttf');
   font-family: 'RalewaySemibold';
-  src: url('raleway/Raleway-SemiBold.ttf');
+  src: asset_url('raleway/Raleway-SemiBold.ttf');
 }
 
 html {
