@@ -2,7 +2,7 @@ require 'sidekiq-scheduler'
 class ParseCsvBatchJob
   include Sidekiq::Worker
 
-  def perform(filename = 'ip_geolocations.csv')
+  def perform(filename = 'IP2LOCATION-LITE-DB3.CSV')
     batch = Sidekiq::Batch.new
     batch.on(:complete, ParseCsvBatchJob)
     batch.jobs do
@@ -11,9 +11,6 @@ class ParseCsvBatchJob
   end
 
   def on_complete(status, options)
-    puts '======================================================='
-    puts 'ParseCsvBatchJob completed. Starting ElasticSearch import.'
-    puts '======================================================='
     IpAddressRangeImportJob.perform_async
   end
 end
