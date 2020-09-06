@@ -4,7 +4,7 @@ Rails based API that accepts an IP address and returns the geolocation for that 
 
 Example request:
 ```
-curl -X POST http://freeipgeolocation.com/api/geolocation -H 'Content-Type: application/json' -H 'Authorization: /L1plHP/mIVnwPkUVsP+BWiqEVTlDq4zqpzqDjy5XRY=' -H 'Accept: application/json' -d '{ "ip": "219.8.8.8" }'
+curl -X POST {URL}/api/geolocation -H 'Content-Type: application/json' -H 'Authorization: {AUTH_TOKEN}' -H 'Accept: application/json' -d '{ "ip": "219.8.8.8" }'
 ```
 
 Example response:
