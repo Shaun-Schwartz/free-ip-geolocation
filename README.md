@@ -1,24 +1,19 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Rails based API that accepts an IP address and returns the geolocation for that IP.
 
-Things you may want to cover:
+Example request:
+```
+curl -X POST http://freeipgeolocation.com/api/geolocation -H 'Content-Type: application/json' -H 'Authorization: /L1plHP/mIVnwPkUVsP+BWiqEVTlDq4zqpzqDjy5XRY=' -H 'Accept: application/json' -d '{ "ip": "219.8.8.8" }'
+```
 
-* Ruby version
+Example response:
+```
+{"data":{"id":"1a76","type":"location","attributes":{"country":"Japan","abbreviation":"JP","region":"Tokyo","city":"Tokyo"}}}
+```
 
-* System dependencies
+Elasticsearch (version 7.8.1) is used to ensure performant IP address lookups.
+FastJsonapi is used to decrease data response time as well as comply with the JSON:API spec.
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+IP2Location's lite CSV file is the provider of the IP to geolocation data: https://lite.ip2location.com/database/ip-country-region-city The free CSV file provided is updated monthly.
+A sidekiq batch job parses the CSV file. Once that is completed a callback triggers the job to import the data into elasticsearch.
